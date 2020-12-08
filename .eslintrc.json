@@ -1,0 +1,50 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "plugin:vue/essential",
+        "airbnb-base",
+        "plugin:prettier/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": ["prettier","vue"],
+  "rules": {
+    // Allow Prettier to throw errors via ESLint
+    "prettier/prettier": ["error", {
+    "endOfLine":"auto"
+  }],
+      "no-shadow": ["error", { "allow": ["state"] }],
+      "no-param-reassign": [
+        "error",
+        {
+          "props": true,
+          "ignorePropertyModificationsFor": [ // All properties except state are in the ignorePropertyModificationsFor array by default.
+            "state",
+            "acc",
+            "e",
+            "ctx",
+            "req",
+            "request",
+            "res",
+            "response",
+            "$scope"
+          ]
+        }
+      ],
+      "vue/valid-v-slot": ["error", {
+        "allowModifiers": true
+      }]
+  }
+}
